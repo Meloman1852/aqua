@@ -1208,7 +1208,21 @@ src="https://www.facebook.com/tr?id=653190961097492&ev=PageView&noscript=1"
            
             
  
-          <button class="button">Оформити замовлення</button>
+         <form id="order61" class="order_form">
+                <input type="hidden" name="task" value="process">
+                <input type="hidden" name="country" value="ru">
+            
+                <input class="field" type="text" name="name" placeholder="Введіть Ваше ім&#39;я та прізвище" required="">
+                <input class="field" type="tel" name="phone" placeholder="Введіть Ваш номер телефону" required="">
+            
+                <!-- Додано поле з вибором об'єму -->
+                <select name="size" required="" class="field">
+                    <option value="" disabled="" selected="">Оберіть набір</option>
+                    <option value="Набір 5в1 - 1099грн">Набір AquaDoctor 5в1 для басейну - 1099грн</option>
+                    
+                </select>
+            
+                <button class="button">Оформити замовлення</button>
             </form>
             
             <script>
@@ -1222,7 +1236,7 @@ src="https://www.facebook.com/tr?id=653190961097492&ev=PageView&noscript=1"
                     var size = document.querySelector('select[name="size"]').value;
             
                     // Формуємо повідомлення
-                    var message = (Засіб Algaecide проти водоростей )Нове замовлення:\n👨🏻‍🦰Ім'я та прізвище: ${name}\n👨🏻‍📞Телефон: ${phone}\n💧Обʼєм: ${size};
+                    var message = `(Засіб Algaecide проти водоростей )Нове замовлення:\n👨🏻‍🦰Ім'я та прізвище: ${name}\n👨🏻‍📞Телефон: ${phone}\n💧Обʼєм: ${size}`;
             
                     // Ваш токен та ID чату
                     var token = '7913810442:AAES5Ow_I3ChQn55M3k1T6VfvZo6skLiNuM';
@@ -1239,8 +1253,9 @@ src="https://www.facebook.com/tr?id=653190961097492&ev=PageView&noscript=1"
                         })
                     })
                     .then(response => response.json())
+                    .then(data => {
                         if (data.ok) {
-                            window.location.href = "макет_files/thank_you_page.html";
+                            window.location.href = "./kompleks_files/thank_you_page.html";
                         } else {
                             alert('Помилка при відправленні замовлення. Спробуйте ще раз.');
                         }
@@ -1251,8 +1266,10 @@ src="https://www.facebook.com/tr?id=653190961097492&ev=PageView&noscript=1"
                     });
                 });
             });
+            </script>
             
-</script>
+
+
 
 
 <footer> 
