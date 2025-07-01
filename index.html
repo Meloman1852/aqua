@@ -1208,21 +1208,7 @@ src="https://www.facebook.com/tr?id=653190961097492&ev=PageView&noscript=1"
            
             
  
-            <form id="order61" class="order_form">
-                <input type="hidden" name="task" value="process">
-                <input type="hidden" name="country" value="ru">
-            
-                <input class="field" type="text" name="name" placeholder="Введіть Ваше ім&#39;я та прізвище" required="">
-                <input class="field" type="tel" name="phone" placeholder="Введіть Ваш номер телефону" required="">
-            
-                <!-- Додано поле з вибором об'єму -->
-                <select name="size" required="" class="field">
-                    <option value="" disabled="" selected="">Оберіть набір</option>
-                    <option value="Набір 5в1 - 1099грн">Набір AquaDoctor 5в1 для басейну - 1099грн</option>
-                    
-                </select>
-            
-            <script>
+           <script>
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('order61').addEventListener('submit', function(e) {
     e.preventDefault(); // Запобігаємо стандартній відправці форми
@@ -1252,13 +1238,12 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
       if (data.ok) {
-        // УСПІХ – перенаправляємо
         window.location.href = "макет_files/thank_you_page.html";
       } else {
         alert('Помилка при відправленні замовлення. Спробуйте ще раз.');
       }
     })
-    .catch((error) => {
+    .catch(error => {
       console.error('Error:', error);
       alert('Помилка при відправленні замовлення.');
     });
